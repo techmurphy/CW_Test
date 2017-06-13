@@ -31,7 +31,7 @@ var app = express();
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json({ verify: verifyRequestSignature }));
-app.set('views', __dirname + '/views');
+app.set('views', __dirname + '/index.html');
 app.set('view engine', 'ejs');
 /*
 // List out all the thanks recorded in the database
