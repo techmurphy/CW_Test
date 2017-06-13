@@ -25,13 +25,13 @@ if (!(APP_SECRET && VERIFY_TOKEN && ACCESS_TOKEN && DATABASE_URL)) {
 	process.exit(1);
 }
 
-pg.defaults.ssl = true;
+pg.defaults.ssl = false;
 
 var app = express();
 app.set('port', (process.env.PORT || 80));
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json({ verify: verifyRequestSignature }));
-app.set('views', __dirname + '/index.html');
+app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 // List out all the thanks recorded in the database
