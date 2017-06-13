@@ -20,7 +20,7 @@ const
 	APP_SECRET = process.env.APP_SECRET,
 	DATABASE_URL = process.env.DATABASE_URL;
 
-if (!(APP_SECRET && VERIFY_TOKEN && ACCESS_TOKEN && DATABASE_URL)) {
+if (!(APP_SECRET && VERIFY_TOKEN && ACCESS_TOKEN)) {
 	console.error('Missing environment values.');
 	process.exit(1);
 }
