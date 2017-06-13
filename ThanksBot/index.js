@@ -20,7 +20,7 @@ const
 	APP_SECRET = process.env.APP_SECRET,
 	DATABASE_URL = process.env.DATABASE_URL;
 
-if (!(APP_SECRET && VERIFY_TOKEN && ACCESS_TOKEN)) {
+if (!(APP_SECRET && VERIFY_TOKEN && ACCESS_TOKEN && DATABASE_URL)) {
 	console.error('Missing environment values.');
 	process.exit(1);
 }
@@ -33,7 +33,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json({ verify: verifyRequestSignature }));
 app.set('views', __dirname + '/index.html');
 app.set('view engine', 'ejs');
-/*
+
 // List out all the thanks recorded in the database
 app.get('/', function (request, response) {
 	pg.connect(DATABASE_URL, function(err, client, done) {
@@ -201,4 +201,4 @@ function verifyRequestSignature(req, res, buf) {
 			throw new Error("Couldn't validate the request signature.");
 		}
 	}
-}*/
+}
